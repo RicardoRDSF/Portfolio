@@ -5,11 +5,8 @@ const navMenu = document.getElementById('nav-menu'),
       sections = document.querySelectorAll('section[id]'),
       themeBtn = document.getElementById('dark-btn'),
       darkTheme = 'dark-theme',
-      iconTheme = 'fa-sun',
       selectedTheme = localStorage.getItem('selected-theme'),
-      selectedIcon = localStorage.getItem('selected-icon'),
-      getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light',
-      getCurrentIcon = () => themeBtn.classList.contains(iconTheme) ? 'fa-moon' : 'fa-sun'
+      getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
 var accordion = new Accordion('.accordion-container');
 
 if(navToggle){
@@ -150,11 +147,8 @@ window.addEventListener('scroll', scrollBtn)
 /*--dark theme--*/
 if(selectedTheme){
   document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-  themeBtn.classList[selectedIcon === 'fa-moon' ? 'add' : 'remove'](iconTheme)
 }
-themeBtn.addEventListener('click', () =>{
+themeBtn.addEventListener('click', () => {
   document.body.classList.toggle(darkTheme)
-  themeBtn.classList.toggle(iconTheme)
   localStorage.setItem('selected-theme', getCurrentTheme())
-  localStorage.setItem('selected-icon', getCurrentIcon())
 })
